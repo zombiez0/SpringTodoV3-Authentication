@@ -3,6 +3,8 @@ package com.app.todo.controllers;
 import com.app.todo.models.Todo;
 import com.app.todo.service.TodoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -21,10 +23,10 @@ public class TodoController {
     }
 
     @GetMapping("/todos/getTodos")
-    public String getAllTodos(@RequestParam String userName, Model model) {
+    public ResponseEntity<List<Todo>> getAllTodos(@RequestParam String userName) {
         List<Todo> todoList = this.todoService.getAllTodos(userName);
-        model.addAttribute("allTodos", todoList);
-        return "list-todos";
+        //return todoList;
+        return new ResponseEntity<List<Todo>>(todoList, HttpStatus.OK);
     }
 
     @GetMapping("/todos/addNew")

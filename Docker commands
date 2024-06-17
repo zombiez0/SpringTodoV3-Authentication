@@ -1,5 +1,5 @@
 1) Docker push command, but not necessary as docker plugin has been added which will publish the image on build
-   docker push chetananand87/springtodo-v2:0.0.1-SNAPSHOT
+   docker push chetananand87/springtodo-v3-authentication-0.0.1-SNAPSHOT.jar
 
 2) Run mysql docker container
    docker run -d -e MYSQL_ROOT_PASSWORD=administrator -e MYSQL_DATABASE=tododb -e MYSQL_USERNAME=root -p 3306:3306 --name mysql mysql
